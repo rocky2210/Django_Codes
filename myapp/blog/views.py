@@ -6,7 +6,13 @@ from django.urls import reverse
 # Create your views here.
 def index(request):
     blog_title = "Latest Posts !"
-    return render(request,"blog/index.html",{'blog_title':blog_title})
+    posts = [
+        {'title':'post 1', 'content':'content of Post 1'},
+        {'title':'post 2', 'content':'content of Post 2'},
+        {'title':'post 3', 'content':'content of Post 3'},
+        {'title':'post 4', 'content':'content of Post 4'}
+    ]
+    return render(request,"blog/index.html",{'blog_title':blog_title,'posts':posts})
 
 def detail(request,post_id):
     return render(request,"blog/detail.html")
