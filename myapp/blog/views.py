@@ -7,10 +7,10 @@ from django.urls import reverse
 def index(request):
     blog_title = "Latest Posts !"
     posts = [
-        {'title':'post 1', 'content':'content of Post 1'},
-        {'title':'post 2', 'content':'content of Post 2'},
-        {'title':'post 3', 'content':'content of Post 3'},
-        {'title':'post 4', 'content':'content of Post 4'}
+        {'id':1,'title':'post 1', 'content':'content of Post 1'},
+        {'id':2,'title':'post 2', 'content':'content of Post 2'},
+        {'id':3,'title':'post 3', 'content':'content of Post 3'},
+        {'id':4,'title':'post 4', 'content':'content of Post 4'}
     ]
     return render(request,"blog/index.html",{'blog_title':blog_title,'posts':posts})
 
