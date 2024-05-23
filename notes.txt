@@ -6,3 +6,32 @@ python manage.py runserver
 
 # Create new app
 python manage.py startapp appname
+
+
+# Jinja filters
+Common Built-in Filters:
+
+capitalize: Converts the first letter of a string to uppercase.
+     Example: {{ name | capitalize }} (displays "John" as "John")
+center: Centers a string within a specified width, padding with spaces.
+     Example: {{ title | center(40) }} (centers the title within a 40-character width)
+escape: Escapes special characters in a string to prevent HTML injection vulnerabilities.
+     Example: {{ user_comment | escape }} (escapes potentially malicious input)
+first: Returns the first element from a sequence (list, tuple, etc.).
+     Example: {{ products | first }} (displays the first product)
+join: Joins elements of a sequence into a single string with a specified delimiter.
+     Example: {{ tags | join(', ') }} (joins tags with commas and spaces)
+length: Returns the length of a string or sequence.
+     Example: {{ message | length }} (displays the message length)
+lower: Converts all characters in a string to lowercase.
+     Example: {{ username | lower }} (converts the username to lowercase)
+replace: Replaces occurrences of a substring with another substring.
+     Example: {{ text | replace('!', '.') }} (replaces exclamation points with periods)
+sort: Sorts elements in a sequence.
+     Example: {{ numbers | sort(reverse=True) }} (sorts numbers in descending order)
+title: Converts the first letter of each word in a string to uppercase.
+     Example: {{ book_title | title }} (displays "The Lord of the Rings" as "The Lord Of The Rings")
+truncate: Truncates a string to a specified length, with an option to add an ellipsis (...) at the end.
+     Example: {{ description | truncate(100, ellipsis=True) }} (truncates a description to 100 characters with ...)
+upper: Converts all characters in a string to uppercase.
+     Example: {{ password | upper }} (converts the password to uppercase)
