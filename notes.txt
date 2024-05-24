@@ -35,3 +35,8 @@ truncate: Truncates a string to a specified length, with an option to add an ell
      Example: {{ description | truncate(100, ellipsis=True) }} (truncates a description to 100 characters with ...)
 upper: Converts all characters in a string to uppercase.
      Example: {{ password | upper }} (converts the password to uppercase)
+
+
+# migrations
+python ./manage.py makemigrations
+python ./manage.py migrate
