@@ -80,5 +80,5 @@ class Command(BaseCommand):
         for title,content,img_url in zip(titles,contents,img_urls):
             Post.objects.create(title=title,content=content,img_url=img_url)
             
-        self.stdout.write(self.style.SUCCESS('Completed inserting Data'))
+        # self.stdout.write(self.style.SUCCESS('Completed inserting Data'))
     
