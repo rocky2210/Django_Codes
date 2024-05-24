@@ -8,6 +8,10 @@ class Command(BaseCommand):
     help = "This command inserts post data"
     
     def handle(self, *args: Any, **options: Any):
+        
+        # delete existing data
+        # Post.objects.all().delete()
+        
         titles = [
             "The Future of AI",
             "Climate Change Solutions",
@@ -80,5 +84,5 @@ class Command(BaseCommand):
         for title,content,img_url in zip(titles,contents,img_urls):
             Post.objects.create(title=title,content=content,img_url=img_url)
             
-        # self.stdout.write(self.style.SUCCESS('Completed inserting Data'))
+        self.stdout.write(self.style.SUCCESS('Completed inserting Data'))
     
