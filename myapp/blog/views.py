@@ -21,13 +21,13 @@ def index(request):
     posts = Post.objects.all()
     return render(request,"blog/index.html",{'blog_title':blog_title,'posts':posts})
 
-def detail(request,post_id):
+def detail(request,slug):
     # Getting static data
     # post = next((item for item in posts if item['id'] == int(post_id)),None)
     
     # Getting data from model by post id
     try:
-        post = Post.objects.get(pk=post_id)
+        post = Post.objects.get(slug=slug)
     except Post.DoesNotExist:
         raise Http404("Post does not exist")
     # logger = logging.getLogger('Testing')
