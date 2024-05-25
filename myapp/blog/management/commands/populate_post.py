@@ -1,7 +1,7 @@
 from typing import Any
-from blog.models import Post
+from blog.models import Post, Category
 from django.core.management.base import BaseCommand
-
+import random
 
 
 class Command(BaseCommand):
@@ -10,7 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args: Any, **options: Any):
         
         # delete existing data
-        # Post.objects.all().delete()
+        Post.objects.all().delete()
         
         titles = [
             "The Future of AI",
@@ -80,9 +80,11 @@ class Command(BaseCommand):
             "https://picsum.photos/id/19/800/400",
             "https://picsum.photos/id/20/800/400",
         ]
+        categories = Category.objects.all()
         
         for title,content,img_url in zip(titles,contents,img_urls):
-            Post.objects.create(title=title,content=content,img_url=img_url)
+            category = random.choice(categories)
+            Post.objects.create(title=title,content=content,img_url=img_url,category=category)
             
         self.stdout.write(self.style.SUCCESS('Completed inserting Data'))
     
