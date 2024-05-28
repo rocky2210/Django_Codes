@@ -40,3 +40,7 @@ upper: Converts all characters in a string to uppercase.
 # migrations
 python ./manage.py makemigrations
 python ./manage.py migrate
+
+
+# Create superuser
+python manage.py createsuperuser
