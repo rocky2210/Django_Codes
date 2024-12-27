@@ -1,5 +1,20 @@
-# create new project
-django-admin startproject myapp
+# Create Virtual environment
+    python -m venv anyname
+
+# Activate Virtual environment
+    source /env/Scripts/activate
+
+# Install django
+    python -m pip install django
+
+# Check the version of the django
+    django-admin --version
+    
+# Create new project
+    django-admin startproject myapp
 
 # Start project
-python manage.py runserver
+    python manage.py runserver
+
+# Create app in the Django project
+    python manage.py startapp appname
