@@ -5,9 +5,11 @@
 <div class="container-fluid ">
     <div class="row">
         {% comment %} Variable interpolation {% endcomment %}
-        <h2> {{blog_title}}</h2>
+        <h2> {{blog_title | truncatewords:1 }}</h2>
     </div>
     <div class="row m-3">
+        {% comment %} For tag {% endcomment %}
+        {% for post in posts %}
         <div class="col-4 mb-4">
             <div class="card">
                 <div class="card-body">
@@ -16,8 +18,12 @@
                             <img src="https://via.placeholder.com/300" class="img-fluid" alt="...">
                         </div>
                         <div class="col-md-8">
-                            <h5 class="card-title">Post title</h5>
-                            <p class="card-text">Some quick example text for the post's content.</p>
+                            <h5 class="card-title">{{ forloop.revcounter }}.{{post.title}}</h5>
+                            
+                            <p class="card-text">{{post.content}}</p>
+                            {% empty %}
+                            <li>No data found</li>
+                            
                             <div class="d-flex justify-content-between">
                                     <a href="./detail.html">Read More</a>
                                 <a class="text-decoration-none text-dark fw-bold" href="#">Sports</a>
@@ -27,101 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="https://via.placeholder.com/300" class="img-fluid" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <h5 class="card-title">Post title</h5>
-                            <p class="card-text">Some quick example text for the post's content.</p>
-                            <div class="d-flex justify-content-between">
-                                    <a href="./detail.html">Read More</a>
-                                <a class="text-decoration-none text-dark fw-bold" href="#">Development</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="https://via.placeholder.com/300" class="img-fluid" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <h5 class="card-title">Post title</h5>
-                            <p class="card-text">Some quick example text for the post's content.</p>
-                            <div class="d-flex justify-content-between">
-                                    <a href="./detail.html">Read More</a>
-                                <a class="text-decoration-none text-dark fw-bold" href="#">Engineering</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="https://via.placeholder.com/300" class="img-fluid" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <h5 class="card-title">Post title</h5>
-                            <p class="card-text">Some quick example text for the post's content.</p>
-                            <div class="d-flex justify-content-between">
-                                    <a href="./detail.html">Read More</a>
-                                <a class="text-decoration-none text-dark fw-bold" href="#">Kids</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="https://via.placeholder.com/300" class="img-fluid" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <h5 class="card-title">Post title</h5>
-                            <p class="card-text">Some quick example text for the post's content.</p>
-                            <div class="d-flex justify-content-between">
-                                    <a href="./detail.html">Read More</a>
-                                <a class="text-decoration-none text-dark fw-bold" href="#">Design</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="https://via.placeholder.com/300" class="img-fluid" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <h5 class="card-title">Post title</h5>
-                            <p class="card-text">Some quick example text for the post's content.</p>
-                            <div class="d-flex justify-content-between">
-                                    <a href="./detail.html">Read More</a>
-                                <a class="text-decoration-none text-dark fw-bold" href="#">Movies</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
         <div class="col-12 my-3">
             <nav aria-label="Page navigation">
                 <ul class="pagination">
